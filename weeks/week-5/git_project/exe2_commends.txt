@@ -1,0 +1,155 @@
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ cat <<EOF >team.txt
+> team members:
+> david
+> sara
+> moshe
+> EOF
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        team.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git add team.txt 
+warning: in the working copy of 'team.txt', LF will be replaced by CRLF the next time Git touches it
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git commit -m 'add team members file'
+[master df5eb62] add team members file
+ 1 file changed, 4 insertions(+)
+ create mode 100644 team.txt
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git log --oneline
+df5eb62 (HEAD -> master) add team members file
+e252f9d update mission status and leader
+74db102 creat first mission file
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ echo 'rivka' >> team.txt 
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   team.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git diff
+warning: in the working copy of 'team.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/team.txt b/team.txt
+index e483285..aac9102 100644
+--- a/team.txt
++++ b/team.txt
+@@ -2,3 +2,4 @@ team members:
+ david
+ sara
+ moshe
++rivka
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git add team.txt
+warning: in the working copy of 'team.txt', LF will be replaced by CRLF the next time Git touches it
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git commit -m 'add rivka to the team'
+[master 3c6ec29] add rivka to the team
+ 1 file changed, 1 insertion(+)
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ echo 'secret password: 1234' >> mission.txt 
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   mission.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git diff
+warning: in the working copy of 'mission.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/mission.txt b/mission.txt
+index 85f4c41..6551f30 100644
+--- a/mission.txt
++++ b/mission.txt
+@@ -2,3 +2,4 @@ mission name: operation quiet room
+ status: started
+ leader: Agent David
+ Location: Training Base
++secret password: 1234
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git restore mission.txt 
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ cat mission.txt 
+mission name: operation quiet room
+status: started
+leader: Agent David
+Location: Training Base
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ echo 'secret password: 1234' >> mission.txt 
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git add mission.txt 
+warning: in the working copy of 'mission.txt', LF will be replaced by CRLF the next time Git touches it
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   mission.txt
+
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git restore --staged mission.txt 
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   mission.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git restore mission.txt
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ cat mission.txt 
+mission name: operation quiet room
+status: started
+leader: Agent David
+Location: Training Base
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ 

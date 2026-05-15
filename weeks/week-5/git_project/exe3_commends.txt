@@ -1,0 +1,79 @@
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ cat <<EOF >equipment.txt
+> Equipment:
+Laptop
+Notebook
+Access Card
+> EOF
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        equipment.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git add equipment.txt 
+warning: in the working copy of 'equipment.txt', LF will be replaced by CRLF the next time Git touches it
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   equipment.txt
+
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git commit -m "Add equipment list"
+[master 4bcdc0e] Add equipment list
+ 1 file changed, 4 insertions(+)
+ create mode 100644 equipment.txt
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ echo 'radio' >> equipment.txt 
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git digg
+git: 'digg' is not a git command. See 'git --help'.
+
+The most similar command is
+        diff
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git diff
+warning: in the working copy of 'equipment.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/equipment.txt b/equipment.txt
+index 5f93c0b..34b059e 100644
+--- a/equipment.txt
++++ b/equipment.txt
+@@ -2,3 +2,4 @@ Equipment:
+ Laptop
+ Notebook
+ Access Card
++radio
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git add equipment.txt 
+warning: in the working copy of 'equipment.txt', LF will be replaced by CRLF the next time Git touches it
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git commit -m 'add radio equipment'
+[master 8ef6134] add radio equipment
+ 1 file changed, 1 insertion(+)
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ git log --oneline 
+8ef6134 (HEAD -> master) add radio equipment
+4bcdc0e Add equipment list
+3c6ec29 add rivka to the team
+df5eb62 add team members file
+e252f9d update mission status and leader
+74db102 creat first mission file
+
+user1@DESKTOP-K4RHN2J MINGW64 ~/Desktop/studies/26_05/secret-mission-log (master)
+$ 
