@@ -105,4 +105,6 @@ def load_config(path):
             return value
     except Exception as original_error:
         raise RuntimeError('could not load config') from original_error
+    
+
 # load_config('f')
