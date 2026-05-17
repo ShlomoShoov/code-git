@@ -1,3 +1,4 @@
 *.ipynb
 *.venv
 *.idea
+**/extra_curricular/
