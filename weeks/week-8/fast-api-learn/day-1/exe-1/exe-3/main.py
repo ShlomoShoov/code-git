@@ -48,7 +48,7 @@ def get_average():
 @app.get('/students/{student_id}')
 def get_student(student_id:str):
     if student_id in grades:
-        return grades[student_id]
+        return grades[student_id] 
     else:
         return {'status':'not_found_id'}
     
@@ -56,4 +56,4 @@ def get_student(student_id:str):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app=app, port=8050)
+    uvicorn.run(app=f'{__name__}:app', port=8050, reload=True)
