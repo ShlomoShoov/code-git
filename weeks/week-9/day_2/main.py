@@ -6,7 +6,7 @@ from db import get_all, get_by_id, create, delete, update
 
 class NewSoldier(BaseModel):
     name : str
-    rank : str
+    rank : str 
     unit : str
 
 class UpdateSoldier(BaseModel):
@@ -45,3 +45,7 @@ def delete_soldier(id):
 
 if __name__  == "__main__":
     uvicorn.run(app)
+
+
+
+
