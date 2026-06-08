@@ -43,3 +43,5 @@ def delete_soldier(id):
     if not deleted:
         raise HTTPException(status_code=404,detail="not found")
 
+if __name__  == "__main__":
+    uvicorn.run(app)

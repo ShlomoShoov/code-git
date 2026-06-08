@@ -27,7 +27,7 @@ def get_all()->list[dict]:
     conn = get_connection()
     cursor = conn.cursor(dictionary= True)
     query = f"""
-            SELECT * FORM {DB}
+            SELECT * FROM soldiers
             """
     cursor.execute(query)
     soldiers = cursor.fetchall()
@@ -40,7 +40,7 @@ def get_by_id(soldier_id: int) -> dict | None:
     conn = get_connection()
     cursor = conn.cursor(dictionary= True)
     query = f"""
-            SELECT FROM {DB} WHERE id == %s
+            SELECT * FROM soldiers WHERE id =%s
             """
     cursor.execute(query, (soldier_id,))
     soldier = cursor.fetchall()
@@ -53,10 +53,11 @@ def create(name, rank, unit) -> int:
     cursor = conn.cursor()
 
     query = f"""
-            INSERT INTO {DB} (name, rank_, unit) VALUES (%s, %s, %s)
+            INSERT INTO soldiers (name, rank_, unit) VALUES (%s, %s, %s)
             """
     cursor.execute(query, (name,rank,unit))
-    new_id = cursor.lastrowid()
+    new_id = cursor.lastrowid
+    conn.commit()
 
     conn.close()
     cursor.close()
@@ -71,11 +72,12 @@ def update(soldier_id, data: dict) -> bool:
     cursor = conn.cursor()
 
     query = f"""
-            UPDATE {DB} SET rank_=%s WHERE id=%s
+            UPDATE soldiers SET rank_=%s WHERE id=%s
 
             """
     cursor.execute(query, (data['rank'], soldier_id))
     has_update = cursor.rowcount > 0
+    conn.commit()
 
     conn.close()
     cursor.close()
@@ -87,11 +89,11 @@ def delete(soldier_id: int) -> bool:
     cursor = conn.cursor()
 
     query = f"""
-            DELETE FROM  {DB} WHERE id=%s
+            DELETE FROM  soldiers WHERE id=%s
             """
     cursor.execute(query, (soldier_id,))
     has_deleted = cursor.rowcount > 0
-
+    conn.commit()
     conn.close()
     cursor.close()
 
