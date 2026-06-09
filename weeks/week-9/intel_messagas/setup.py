@@ -4,7 +4,7 @@ TABLE = 'messages'
 
 SCHEMA = """
         id INT PRIMARY KEY AUTO_INCREMENT,
-        unit, VARCHAR(100) NOT NULL,
+        unit VARCHAR(100) NOT NULL,
         classification ENUM('unclassified', 'confidential', 'secret', 'top_secret'),
         content TEXT NOT NULL,
         source VARCHAR(100),
@@ -17,7 +17,7 @@ def setup_table():
     cursor = conn.cursor()
 
     query = f"""
-            CREATE TABLE {TABLE} IF NOT EXISTS
+            CREATE TABLE IF NOT EXISTS {TABLE}
             ({SCHEMA})
             
             """
