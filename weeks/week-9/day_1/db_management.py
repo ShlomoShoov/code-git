@@ -2,7 +2,7 @@ import mysql.connector
 
 import time
 
-PORT = 3307
+PORT = 3306
 PASSWORD = 'secret'
 USER = 'root'
 HOST = "localhost"

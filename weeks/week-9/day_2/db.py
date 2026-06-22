@@ -12,6 +12,7 @@ PASSWORD = 'secret'
 DB = 'soldiers_db'
 USER = 'root'
 PORT = 3306
+TABLE = 'soldiers'
 
 def get_connection()->mysql.connector:
     """
