@@ -156,7 +156,9 @@ class Projrem()
         //accounts[1].Withdraw(800);
         //accounts[2].Deposit(400);
        
-        BankAccount.Transfer(accounts[2], accounts[3], 500);
+        //BankAccount.Transfer(accounts[2], accounts[3], 500);
+        foreach(BankAccount account in accounts) { account.ApplyInterest(); }
+
 
 
 
