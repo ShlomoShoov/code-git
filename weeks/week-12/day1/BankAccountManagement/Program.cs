@@ -100,7 +100,7 @@ public class BankAccount
     {
         if (!IsActive) { Console.WriteLine($"Error: {AccountNumber} => Inactive"); return false; }
         if (amount < 0) { Console.WriteLine("Error: withdrow must be positive "); return false; }
-        if (amount < Balance) { Console.WriteLine("Error: withdrow must be higher then balance."); return false; }
+        if (amount > Balance) { Console.WriteLine($"Error: balance [{Balance}] must be higher then amount. [{amount}]"); return false; }
         Balance -= amount;
         _transactionHistory.Add($"Withdrawing ${amount} from account #{AccountNumber}");
         return true;
@@ -152,12 +152,18 @@ class Projrem()
 
         Console.WriteLine(string.Join("\n", accounts));
 
-        accounts[0].Withdraw(500);
-        accounts[1].Withdraw(800);
-        accounts[2].Deposit(400);
+        //accounts[0].Withdraw(500);
+        //accounts[1].Withdraw(800);
+        //accounts[2].Deposit(400);
+       
+        BankAccount.Transfer(accounts[2], accounts[3], 500);
 
-        foreach (BankAccount account in accounts) {Console.WriteLine($"account {account.AccountNumber}"); account.PrintTransactionHistory();Console.WriteLine($"status: {account.ToString()}"); }
-        Console.WriteLine(string.Join("\n", accounts));
+
+
+        foreach (BankAccount account in accounts) {Console.WriteLine($"account {account.AccountNumber}"); Console.Write("list of tarnstctions:"); account.PrintTransactionHistory();Console.WriteLine($"status: {account.ToString()}"); }
+        
+
+
 
 
 
