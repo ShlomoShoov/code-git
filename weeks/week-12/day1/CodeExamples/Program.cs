@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 
 
@@ -8,6 +9,7 @@ public class Track
     public int Id { get; set;}
     public double Speed;
     private double _heading;
+    public bool IsActive;
 
     public double Heading
     {
@@ -19,19 +21,23 @@ public class Track
         }
     }
 
-    public Track(int id, double speed)
+    public void Try()
     {
-        Id = id;
-        Speed = speed;
-        Console.WriteLine("cons run 1");
-        Console.WriteLine($"Inside constructor -> Property Id: {this.Id}, Field Speed: {this.Speed}");
-    }
-
-    public Track() : this(7,83)
-    {
-        Console.WriteLine($"hello from cons 2");
         
     }
+    //public Track(int id, double speed)
+    //{
+    //    Id = id;
+    //    Speed = speed;
+    //    Console.WriteLine("cons run 1");
+    //    Console.WriteLine($"Inside constructor -> Property Id: {this.Id}, Field Speed: {this.Speed}");
+    //}
+
+    //public Track() : this(7,83)
+    //{
+    //    Console.WriteLine($"hello from cons 2");
+        
+    //}
 }
 
 class Projram
@@ -44,7 +50,7 @@ class Projram
         a.Id = 5;
         
         a.Heading = 200;
-        Console.WriteLine($"{a.Id}:{a.Speed}:{a.Heading}");
+        Console.WriteLine($"{a.Id}:{a.Speed}:{a.IsActive}");
 
     }
 }
